@@ -3,6 +3,7 @@ from django.urls import path
 from genres.views import GenreRetrieveUpdateDestroyView, GenreListCreateView
 from actors.views import ActorListCreateView, ActorRetrieveUpdateDestroyView
 from movies.views import MoviesListCreateView, MoviesRetrieveUpdateDestroyView
+from reviews.views import ReviewCreateList, ReviewRetrieveUpdateDestroy 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,4 +17,7 @@ urlpatterns = [
 
     path('movies/', MoviesListCreateView.as_view(), name='movies-create-list'),
     path('movies/<int:pk>/', MoviesRetrieveUpdateDestroyView.as_view(), name='movies-detail'),
+
+    path('reviews/', ReviewCreateList.as_view(), name='review-create-list'),
+    path('reviews/<int:pk>/', ReviewRetrieveUpdateDestroy.as_view(), name='review-detail'),
 ]
